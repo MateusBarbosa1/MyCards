@@ -1,0 +1,17 @@
+{
+  "name": "cards",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "author": "Mateus Barbosa",
+  "license": "ISC",
+  "devDependencies": {
+    "@prisma/client": "^5.9.1",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
