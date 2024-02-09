@@ -8,7 +8,7 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 main {
-    margin: 50px;
+    margin: 20px 50px;
     display: flex;
     flex-wrap: wrap;
 }

@@ -7,21 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-    <% for(let i = 0;i < cards.length;i++) { %>
-        <div style="border: 2px solid black;padding: 20px;margin: 100px;">
-            <h2><%= cards[i].title %></h2>
-            <% var date = new Date(cards[i].createdAt);%>
-            <h3><%= date.getDate() %>/<%= date.getMonth()+1 %>/<%= date.getFullYear() %></h3>
-            <p style="padding-top: 20px;"><%= cards[i].details %></p>
-            <br>
-            <a href="/<%= name %>/delete/<%= cards[i].title %>">Deletar</a>
-        </div>
-    <% } %>    
+    <h1 style="text-align: center;text-transform: capitalize;padding: 20px;"><%= name %></h1>
+
+    <main>
+        <% for(let i = 0;i < cards.length;i++) { %>
+            <div style="border: 2px solid black;padding: 20px;">
+                <h2><%= cards[i].title %></h2>
+                <% var date = new Date(cards[i].createdAt);%>
+                <h3><%= date.getDate() %>/<%= date.getMonth()+1 %>/<%= date.getFullYear() %></h3>
+                <p style="padding-top: 20px;"><%= cards[i].details %></p>
+                <br>
+                <a href="/<%= name %>/delete/<%= cards[i].title %>">Deletar</a>
+            </div>
+        <% } %> 
+    </main>
+       
 
     <section style="display: none;">
         <form action="/<%= name %>/create-card" method="post">
-            <input type="text" name="title">
-            <input type="text" name="details">
+            <input type="text" name="title" required>
+            <input type="text" name="details" required>
             <input type="submit" value="criar">
         </form>
     </section>
