@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+main {
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+div {
+    margin: 33px;
+    background: rgb(0, 156, 208);
+    width: 350px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+h2 {
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+a {
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    left: 3%;
+    font-size: 40px;
+    padding: 10px 20px;
+    position: fixed;
+    top: 87%;
+    background: orange;
+    color: white;
+    border: none;
+    border-radius: 50%;
+}
+section {
+    position: fixed;
+    left: 35%;
+    top: 25%;
+    width: 30%;
+    height: 50%;
+    background: orange;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+}
+input[type="text"] {
+    font-size: large;
+    height: 50px;
+    padding: 10px;
+    width: 90%;
+    margin: 20px 5%;
+    border: none;
+    border-radius: 10px;
+}
+input[type="submit"] {
+    cursor: pointer;
+    font-size: large;
+    color: white;
+    background: rgb(0, 156, 208);
+    height: 50px;
+    padding: 10px;
+    width: 90%;
+    margin: 10px 5%;
+    border: none;
+    border-radius: 10px;
+}
+input[type="text"]:focus, input:focus, select:focus {
+    outline: 0;
+}
+
+a:hover {
+    background: white;
+    color:rgb(0, 156, 208);
+    transition: 1s;
+}
+div:hover {
+    width: 350px;
+    padding: 35px;
+    transition: 2s;
+}
+button:hover {
+    background: rgb(198, 132, 11);
+    transition: 1.5s;
+}

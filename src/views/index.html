@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <% for(let i = 0;i < themes.length;i++) { %>
-        <div style="border: 2px solid black;padding: 20px;margin: 100px;">
-            <h2><%= themes[i].title %></h2>
-            <a href="/delete/<%= themes[i].title %>">Deletar</a>
-            <a href="/<%= themes[i].title %>">Entrar</a>
-        </div>
-    <% } %>
+    <main>
+        <% for(let i = 0;i < themes.length;i++) { %>
+            <div>
+                <h2><%= themes[i].title %></h2>
+                <a href="/delete/<%= themes[i].title %>">Deletar</a>
+                <a href="/<%= themes[i].title %>">Entrar</a>
+            </div>
+        <% } %>
+    </main>
+    
 
     <section style="display: none;">
+        <h2 style="color: white">Criar Tema</h2>
         <form action="/create-theme" method="post">
-            <input type="text" name="title">
+            <input type="text" name="title" placeholder="Titulo*" required>
             <input type="submit" value="criar">
         </form>
     </section>
 
-    <button onclick="criar()">criar tema</button>
+    <button onclick="criar()">+</button>
 
     <script>
         function criar() {
