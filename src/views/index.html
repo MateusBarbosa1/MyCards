@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% for(let i = 0;i < themes.length;i++) { %>
+        <div style="border: 2px solid black;padding: 20px;margin: 100px;">
+            <h2><%= themes[i].title %></h2>
+            <a href="/delete/<%= themes[i].title %>">Deletar</a>
+            <a href="/<%= themes[i].title %>">Entrar</a>
+        </div>
+    <% } %>
+
+    <section style="display: none;">
+        <form action="/create-theme" method="post">
+            <input type="text" name="title">
+            <input type="submit" value="criar">
+        </form>
+    </section>
+
+    <button onclick="criar()">criar tema</button>
+
+    <script>
+        function criar() {
+            var section = document.querySelector('section');
+
+            section.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

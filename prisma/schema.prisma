@@ -14,3 +14,11 @@ model Themes {
   id    String @id @default(uuid())
   title String
 }
+
+model Cards {
+  id_cards  String   @id @default(uuid())
+  theme     String
+  createdAt DateTime @default(now())
+  title     String
+  details   String
+}

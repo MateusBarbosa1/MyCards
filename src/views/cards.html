@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% for(let i = 0;i < cards.length;i++) { %>
+        <div style="border: 2px solid black;padding: 20px;margin: 100px;">
+            <h2><%= cards[i].title %></h2>
+            <h3><%= cards[i].createdAt %></h3>
+            <p><%= cards[i].details %></p>
+            <a href="/<%= name %>/delete/<%= cards[i].title %>">Deletar</a>
+        </div>
+    <% } %>    
+
+    <section style="display: none;">
+        <form action="/<%= name %>/create-card" method="post">
+            <input type="text" name="title">
+            <input type="text" name="details">
+            <input type="submit" value="criar">
+        </form>
+    </section>
+
+    <button onclick="criar()">criar card</button>
+
+    <script>
+        function criar() {
+            var section = document.querySelector('section');
+
+            section.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
