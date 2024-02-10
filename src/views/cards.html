@@ -13,8 +13,7 @@
         <% for(let i = 0;i < cards.length;i++) { %>
             <div style="border: 2px solid black;padding: 20px;">
                 <h2><%= cards[i].title %></h2>
-                <% var date = new Date(cards[i].createdAt);%>
-                <h3><%= date.getDate() %>/<%= date.getMonth()+1 %>/<%= date.getFullYear() %></h3>
+                <h3><%= cards[i].createdAt %></h3>
                 <p style="padding-top: 20px;"><%= cards[i].details %></p>
                 <br>
                 <a href="/<%= name %>/delete/<%= cards[i].title %>">Deletar</a>

@@ -7,10 +7,12 @@ async function getCards(name){
     return cards;
 }
 async function createCards(req){
+    const date = new Date();
     const cards_created = await prisma.cards.create({
         data: {
             theme: req.params.name.toLowerCase(),
             title: req.body.title,
+            createdAt: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
             details: req.body.details
         }
     });

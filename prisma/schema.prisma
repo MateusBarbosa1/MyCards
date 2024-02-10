@@ -16,9 +16,9 @@ model Themes {
 }
 
 model Cards {
-  id_cards  String   @id @default(uuid())
+  id_cards  String @id @default(uuid())
   theme     String
-  createdAt DateTime @default(now())
+  createdAt String
   title     String
   details   String
 }
