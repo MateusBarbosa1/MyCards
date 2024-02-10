@@ -6,13 +6,19 @@ async function getCards(name){
     const cards = await prisma.cards.findMany({ where: { theme: name } });
     return cards;
 }
-async function createCards(req){
+async function createCards(req) {
     const date = new Date();
+    // Ajuste para adicionar 1 ao mês, pois o mês começa em 0
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const year = date.getFullYear();
+
     const cards_created = await prisma.cards.create({
         data: {
             theme: req.params.name.toLowerCase(),
             title: req.body.title,
-            createdAt: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
+            // Formatando a data no formato "YYYY-MM-DD"
+            createdAt: `${year}-${month}-${day}`,
             details: req.body.details
         }
     });
