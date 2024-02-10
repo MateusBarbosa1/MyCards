@@ -22,9 +22,28 @@ async function deleteCard(name, name_card){
     const deleted = await prisma.cards.deleteMany({ where: { theme: name, title: name_card } })
     return deleted;
 }
+async function updateCard(req, name, index){
+    var cards = getCards(name);
+    for(let i = 0;i < (await cards).length;i++) {
+        if(i == index) {
+            cards.then(async (value)=>{
+                const updated = await prisma.cards.updateMany({
+                    where: { theme: name, id_cards: value[i].id_cards},
+                    data: {
+                        title: req.body.title,
+                        details: req.body.details
+                    }
+                });
+                return updated;
+
+            });
+        }
+    }
+}
 
 module.exports = {
     getCards,
     createCards,
-    deleteCard
+    deleteCard,
+    updateCard
 };

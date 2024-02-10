@@ -8,35 +8,58 @@
 </head>
 <body>
     <h1 style="text-align: center;text-transform: capitalize;padding: 20px;"><%= name %></h1>
-
     <main>
         <% for(let i = 0;i < cards.length;i++) { %>
-            <div style="border: 2px solid black;padding: 20px;">
+            <div style="border: 2px solid black;padding: 20px;" class="c<%= i %>">
                 <h2><%= cards[i].title %></h2>
                 <h3><%= cards[i].createdAt %></h3>
                 <p style="padding-top: 20px;"><%= cards[i].details %></p>
                 <br>
                 <a href="/<%= name %>/delete/<%= cards[i].title %>">Deletar</a>
+                <btn style="cursor: pointer;" onclick="atualizar(<%= i %>)"><a>Atualizar</a></btn>
             </div>
+            <section style="display: none;" class="update">
+                <form action="/<%= name %>/update-card/<%= i %>" method="post" >
+                    <h2>Atualizar</h2>
+                    <input type="text" name="title" id="title" placeholder="Titulo*" required>
+                    <input type="text" name="details" id="details" placeholder="Detalhes*" required>
+                    <input type="submit" value="Atualizar">
+                </form>
+            </section>
         <% } %> 
     </main>
        
 
-    <section style="display: none;">
+    <section style="display: none;" class="create">
         <form action="/<%= name %>/create-card" method="post">
-            <input type="text" name="title" required>
-            <input type="text" name="details" required>
+            <h2>Criar</h2>
+            <input type="text" name="title" placeholder="Titulo*" required>
+            <input type="text" name="details" placeholder="Detalhes*" required>
             <input type="submit" value="criar">
         </form>
     </section>
+    
 
     <button onclick="criar()">+</button>
 
     <script>
         function criar() {
-            var section = document.querySelector('section');
+            var section = document.querySelector('section.create');
 
             section.style.display = 'block';
+        }
+        function atualizar(id) {
+            var section = document.querySelector('section.update');
+            var title = document.querySelector('div.c'+id+' h2');
+            var details = document.querySelector('div.c'+id+' p');
+            var input_title = document.querySelector('#title');
+            var input_details = document.querySelector('#details');
+
+            input_title.value = title.innerText;
+            input_details.value = details.innerText;
+
+            section.style.display = 'block';
+            
         }
     </script>
 </body>

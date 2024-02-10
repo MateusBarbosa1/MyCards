@@ -42,5 +42,9 @@ app.get('/:name/delete/:name_card', async (req,res) => {
     await cardsModel.deleteCard(req.params.name, req.params.name_card);
     res.redirect('/'+req.params.name);
 });
+app.post('/:name/update-card/:index', async (req,res) => {
+    await cardsModel.updateCard(req, req.params.name, req.params.index);
+    res.redirect('/'+req.params.name);
+});
 
 app.listen(3333, () => {console.log('server running on port 3333!');});
