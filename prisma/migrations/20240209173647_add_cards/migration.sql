@@ -2,7 +2,7 @@
 CREATE TABLE "Cards" (
     "id_cards" TEXT NOT NULL,
     "theme" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "createdAt" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "details" TEXT NOT NULL,
 
